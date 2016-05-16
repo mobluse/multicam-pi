@@ -1,2 +1,3 @@
 #!/bin/sh
-crontab -r
+sudo crontab -r
+sudo crontab -l

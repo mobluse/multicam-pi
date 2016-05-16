@@ -1,2 +1,3 @@
 #!/bin/sh
-crontab cron.txt
+sudo crontab cron.txt
+sudo crontab -l
