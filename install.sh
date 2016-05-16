@@ -1,2 +1,3 @@
 #!/bin/sh
-cp -n camera.sh ..
+sudo apt-get install vgrabbj
+cp -n camera.sh ~
