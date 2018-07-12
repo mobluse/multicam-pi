@@ -1,10 +1,21 @@
-#Enbildstagning med en webbkamera
+# Enbildstagning med en webbkamera
 
 http://enradare.orbin.se/#post56
 
-Jag har två webbkameror kopplade till en Raspberry Pi som tar enbildstagning och det fungerar bra om man använder lägre upplösning än den maximala för vissa kameror. Visserligen kraschar kamerorna ibland, men då startas hela systemet om och därefter fungerar den felande kameran igen. Jag tror detta är ett bra projekt för att visa nyttan med RPi, ty Raspbian har drivrutiner för de flesta tillbehör till skillnad från t.ex. Android. Många har en massa gamla webbkameror hemma som kan komma till nytta igen. Det står här om hur man använder en webbkamera från Raspberry Pi:
+Jag har två webbkameror kopplade till en Raspberry Pi som tar enbildstagning och det fungerar bra om man använder lägre upplösning än
+den maximala för vissa kameror. Visserligen kraschar kamerorna ibland, men då startas hela systemet om och därefter fungerar den
+felande kameran igen. Jag tror detta är ett bra projekt för att visa nyttan med RPi, ty Raspbian har drivrutiner för de flesta tillbehör
+till skillnad från t.ex. Android. Många har en massa gamla webbkameror hemma som kan komma till nytta igen. Det står här om hur man
+använder en webbkamera från Raspberry Pi:
 http://www.raspberrypi.org/learning/webcam-timelapse-setup/
-Det är dock inte så enkelt som det verkar med de webbkameror jag provat eftersom man oftast får palettfel och att Raspberry Pi med ARM-processor inte verkar ha samma kapacitet att ta emot högupplösta bilder som en laptop-PC med en Intel-processor. USB verkar också vara långsammare på Raspberry Pi än på en PC. Problemen med webbkameror och Raspberry Pi kan också bero på strömförsörjning, men jag har en strömförsörjd USB-hubb så det borde fungera. Först testar jag kamerorna i operativsystemet Ubuntu 14.04 LTS Linux på en laptop-PC och därefter i Raspbian på Raspberry Pi. Även i Ubuntu måste man ladda in bibliotek som sköter bl.a. palettkonvertering och det lär bero på att webbkamerorna är gamla. Längst ner i inlägget finns skript för att ta enbildstagning varje minut som laddas upp till ett webbhotell, göra filmer och hämta dessa från annan dator. Namnen på webbkamerorna kommer från kommandot lsusb och är oftast inte samma som står på förpackningen.
+Det är dock inte så enkelt som det verkar med de webbkameror jag provat eftersom man oftast får palettfel och att Raspberry Pi med
+ARM-processor inte verkar ha samma kapacitet att ta emot högupplösta bilder som en laptop-PC med en Intel-processor. USB verkar också
+vara långsammare på Raspberry Pi än på en PC. Problemen med webbkameror och Raspberry Pi kan också bero på strömförsörjning, men jag
+har en strömförsörjd USB-hubb så det borde fungera. Först testar jag kamerorna i operativsystemet Ubuntu 14.04 LTS Linux på en
+laptop-PC och därefter i Raspbian på Raspberry Pi. Även i Ubuntu måste man ladda in bibliotek som sköter bl.a. palettkonvertering och
+det lär bero på att webbkamerorna är gamla. Längst ner i inlägget finns skript för att ta enbildstagning varje minut som laddas upp
+till ett webbhotell, göra filmer och hämta dessa från annan dator. Namnen på webbkamerorna kommer från kommandot lsusb och är oftast
+inte samma som står på förpackningen.
 
 Ubuntu 14.04:
 STMicroelectronics Imaging Division (VLSI Vision) Aiptek PenCam 1:
@@ -99,4 +110,5 @@ scp pi@dojopi1.local:camera/miniwebcam_timelapse.avi .
 scp pi@dojopi1.local:camera/miniwebcam_stills.txt .  
 ssh pi@aeblapi1.local 'rm -f camera/*.avi'
 
-Om du ser något anmärkningsvärt i videon så kan du hitta ungefär rätt bild bland stillbilderna genom att t.ex. beräkna hur många procent händelsetiden är av den totala tiden och hitta radnumret i textfilen med stillbilderna med samma procentsats.
+Om du ser något anmärkningsvärt i videon så kan du hitta ungefär rätt bild bland stillbilderna genom att t.ex. beräkna hur många procent
+händelsetiden är av den totala tiden och hitta radnumret i textfilen med stillbilderna med samma procentsats.
